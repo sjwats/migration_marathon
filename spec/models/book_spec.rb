@@ -7,5 +7,6 @@ describe Book do
   it { should have_valid(:rating).when(0, 20, 100) }
   it { should_not have_valid(:rating).when(-1, "ten", 101) }
   it { should have_many(:checkouts) }
+  it { should have_many(:genres).through(:categorizations) }
 
 end

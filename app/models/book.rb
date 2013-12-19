@@ -2,7 +2,9 @@ require 'pry'
 
 class Book < ActiveRecord::Base
   has_many :checkouts
-  belongs_to :genre
+  has_many :categorizations
+  has_many :genres,
+    through: :categorizations #sets up the join between the tables for you
 
   validates_presence_of :title
   validates_presence_of :author
